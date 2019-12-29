@@ -1,0 +1,8 @@
+package SWP;
+
+public class InterFace {
+    InterFace(){} // constructor
+    void ShowMenu(){}
+    void SelectFriend(){}
+    
+}

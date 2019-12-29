@@ -1,0 +1,6 @@
+package SWP;
+public class Page {
+    String pageName;
+    Page(){} //constructor
+    void CreatePage(){}
+}

@@ -1,0 +1,9 @@
+package SWP;
+
+public class User {
+    String Name,Email;
+    int Password,Confirmpassword;
+    
+    User(){} // constructor
+    
+}

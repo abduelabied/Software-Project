@@ -1,0 +1,8 @@
+package SWP;
+
+public class DataAccess {
+    DataAccess(){} //constructor
+    void SaveData(){}
+    void Search(String Data){}
+    void Verify(){}
+}

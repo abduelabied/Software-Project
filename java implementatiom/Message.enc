@@ -1,0 +1,9 @@
+package SWP;
+public class Message {
+    String input;
+    Message(){} // Constructor
+    void send(String input){}
+    void recive(){}
+    void setType(){} //Type of Message
+    
+}

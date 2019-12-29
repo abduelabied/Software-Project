@@ -1,0 +1,11 @@
+package SWP;
+
+public class Group {
+    String GroupNmae;
+    String GroupType;
+    Group(){} // constructor
+    void CreatePremiumeGroup(){}
+    void CreateNormalGroup(){}
+    
+    
+}

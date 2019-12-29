@@ -1,0 +1,12 @@
+package SWP;
+
+import java.util.List;
+
+
+public class PageAdmin {
+    List<Page>pages;
+    PageAdmin(){} //constructor
+    void manage_page(){}
+    
+    
+}

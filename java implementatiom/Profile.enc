@@ -1,0 +1,36 @@
+package SWP;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+public class Profile {
+    Profile(){} // Constructor
+    void CreateGroup(){}
+    void SetType(){}
+    void SetName(){}
+    void SelectPost(){}
+    void CreatePage(){}
+    boolean SearchPage(String pagename){return true;}
+    boolean SearchFriend(String friendname){return true;}
+    void OpenProfile(){}
+    void GetProfile(){}
+    void GetProfile(String Message){}
+    void SelectType(String username)
+    {
+    	
+        	try {Class.forName("com.mysql.jdbc.Driver");
+       		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","");
+       		String sql = "update users set Acctype = ? Where Username = "+"'"+username+"'";
+       		PreparedStatement st= con.prepareStatement(sql);
+       		st.setString(1, "Premium");
+       		st.executeUpdate();	
+       		
+       		
+       	}catch(Exception e) {System.out.print(e);}
+        	
+        }
+    	
+    
+    void Logout(){}
+}

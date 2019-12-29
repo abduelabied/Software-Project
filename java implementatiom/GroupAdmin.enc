@@ -1,0 +1,11 @@
+package SWP;
+import java.util.List;
+public class GroupAdmin {
+    List<Group>groups;
+    GroupAdmin(){} // constructor
+    void confirm_requests(){}
+    void manage_group(){}
+    
+    
+    
+}

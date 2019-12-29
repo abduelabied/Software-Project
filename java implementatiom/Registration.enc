@@ -1,0 +1,78 @@
+package SWP;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class Registration {
+	
+    Registration(){} // constructor
+    User SignUp(User u){
+    	
+    	
+    		
+  
+    	try {Class.forName("com.mysql.jdbc.Driver");
+   		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","");
+   		String sql = "Insert Into users(Username , Password , Confirmpassword,Email) Values(?,?,?,?)";
+   		PreparedStatement stmt = con.prepareStatement(sql);
+   		stmt.setString(1, u.Name);
+   		stmt.setInt(2, u.Password);
+   		stmt.setInt(3, u.Confirmpassword);
+   		stmt.setString(4, u.Email);
+   		stmt.execute();
+   		
+			/*
+			 * while(rs.next()) { System.out.print(rs.getString(1) + rs.getString(2)); }
+			 */
+   		
+   	}catch(Exception e) {System.out.print(e);}
+   	return u;
+    }
+    void GetData(){}
+    String Login(String Email , int Password){
+    	User u = new User();
+    	
+    	try {Class.forName("com.mysql.jdbc.Driver");
+   		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","");
+   		String sql = "Select Password ,Username from users where Email = "+"'"+Email+"'";
+   		Statement stmt = con.createStatement();
+   		ResultSet rs = stmt.executeQuery(sql);
+   		if(rs.next())
+   		{
+   			if(Password == rs.getInt(1))
+   			{
+
+   		   		 u.Name = rs.getString(2);
+   		   		 //System.out.println(u.Name);
+   		   		// }
+   			System.out.println("The Acc is Opend");
+   			
+   		}
+   			else {
+   				System.out.println("Wrong Password");
+   			}
+   		}
+   		else 
+   		{
+   			System.out.println("User is not found");
+   			
+   		}
+   	
+   		//System.out.println("Account Created!");
+			/*
+			 * while(rs.next()) { System.out.print(rs.getString(1) + rs.getString(2)); }
+			 */
+   		
+   	}
+    	catch(Exception e) {System.out.print(e);}
+    	
+    	return u.Name;
+    }
+    	
+    	
+    }
+   
+

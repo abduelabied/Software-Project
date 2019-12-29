@@ -1,0 +1,57 @@
+package SWP;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class Friend {
+    String Name;
+    Friend(){}
+    void add_friend(String Sender , String Reciver){
+    	try {Class.forName("com.mysql.jdbc.Driver");
+   		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","");
+   		String sql = "Select Username from users Where Username = "+"'"+Reciver+"'";
+   		Statement stmt = con.createStatement();
+   		ResultSet rs = stmt.executeQuery(sql);
+			
+			  if(rs.next())
+			  { 
+				  
+				  String query = "Insert Into friends(Friendname , Username,isAccepted) Values(?,?,?)";
+			   		PreparedStatement st= con.prepareStatement(query);
+			   		st.setString(1,Reciver);
+			   		st.setString(2,Sender);
+			   		st.setBoolean(3, false);
+			   		st.execute();
+				  
+			  }
+			  else {
+				  System.out.println("User Not Found");
+			  }
+		
+		
+		
+			
+   		
+   	}catch(Exception e) {System.out.print(e);}
+   	
+    }
+    void confirm_request(String Reciver ,String Sender)
+    {
+    	try {Class.forName("com.mysql.jdbc.Driver");
+   		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","");
+   		String sql = "update friends set isAccepted = ? Where Username = "+"'"+Sender+"'"+"AND friendname = "+"'"+Reciver+"'";;
+   		PreparedStatement st= con.prepareStatement(sql);
+   		st.setBoolean(1, true);
+   		st.executeUpdate();	
+   		
+   	}catch(Exception e) {System.out.print(e);}
+    	
+    }
+    void delete_friend(){}
+    
+    
+}

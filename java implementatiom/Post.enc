@@ -1,0 +1,11 @@
+package SWP;
+
+public class Post {
+    String post_type;
+    Post(){} //constructor
+    String DisplyPost(){return post_type;}
+    void like(){}
+    void share(){}
+    
+}
+    

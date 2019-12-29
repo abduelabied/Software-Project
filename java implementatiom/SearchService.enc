@@ -1,0 +1,7 @@
+package SWP;
+public class SearchService {
+    SearchService(){} // constructor
+    void SetName(){}
+    void Data(String Name){}
+    
+}

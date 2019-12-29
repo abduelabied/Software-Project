@@ -1,0 +1,128 @@
+package SWP;
+
+import java.util.Scanner;
+
+public class main {
+
+	 public static void main(String[] args) {
+		 int choice;
+		 User user = new User();
+		 Scanner scanner = new Scanner(System.in);
+		  while (true)
+		  {
+			  
+			  System.out.println("1- Sign Up"+"\n"+"2- Login"+"\n"+"3- Add Friend"+"\n"+"4- Accept Friend"+"\n"+"5= Upgarse Account");
+			  System.out.print("Please Enter Your Choice:");
+			  choice = scanner.nextInt();
+			 
+		  if(choice == 1)
+		  {
+			  
+			  Registration s = new Registration();
+			  System.out.println("Welcome To Our Application !");
+		    	System.out.println("Name:");
+		    	user.Name = scanner.next();
+		    	System.out.println("Email: ");
+		    	user.Email = scanner.next();
+			  	System.out.println("Password: ");
+		    	user.Password = scanner.nextInt();
+		    	System.out.println("Confirm Password ");
+		    	user.Confirmpassword = scanner.nextInt();
+		    	while(user.Password != user.Confirmpassword)
+		    	{
+		    		System.out.print("Please Enter Correct Password: ");
+		    		user.Password = scanner.nextInt();
+		        	System.out.println("Confirm Password ");
+		        	user.Confirmpassword = scanner.nextInt();
+		    	}
+			  s.SignUp(user);
+			  System.out.println("Account Created!");
+		  }  
+		  else if(choice == 2)
+		  {
+			  System.out.println("Welcome Back!");
+			  
+		    	System.out.println("Email: ");
+		    	user.Email = scanner.next();
+		    	System.out.println("Password: ");
+		    	user.Password = scanner.nextInt();
+			  Registration l = new Registration();
+			   user.Name = l.Login(user.Email , user.Password);
+		  }
+		  else if(choice == 3) {
+			  while( user.Name == null)
+			  {
+				  Registration d = new Registration();
+				  System.out.println("You Should login First");
+				  System.out.println("Email: ");
+			    	user.Email = scanner.next();
+			    	System.out.println("Password: ");
+			    	user.Password = scanner.nextInt();
+				  Registration l = new Registration();
+				   user.Name = l.Login(user.Email , user.Password);
+//				  d.Login(user.Email , user.Password);
+				   
+			  }
+				Friend f = new Friend();
+				System.out.println("Enter Friend Name You want to Send Request");
+				String Reciver = scanner.next();
+				f.add_friend(user.Name , Reciver);
+			
+			  }
+		  else if(choice  == 4)
+		  {
+			  while( user.Name == null)
+			  {
+				  Registration d = new Registration();
+				  System.out.println("You Should login First");
+				  System.out.println("Email: ");
+			    	user.Email = scanner.next();
+			    	System.out.println("Password: ");
+			    	user.Password = scanner.nextInt();
+				  Registration l = new Registration();
+				   user.Name = l.Login(user.Email , user.Password);
+			  }
+			  Friend f = new Friend();
+			  System.out.println("Enter Friend Name You want to Accept Request");
+				String Sender = scanner.next();
+				f.confirm_request(user.Name , Sender);
+			  
+		  }
+		  else if(choice == 5)
+		  {
+			  while( user.Name == null)
+			  {
+				  Registration d = new Registration();
+				  System.out.println("You Should login First");
+				  System.out.println("Email: ");
+			    	user.Email = scanner.next();
+			    	System.out.println("Password: ");
+			    	user.Password = scanner.nextInt();
+				  Registration l = new Registration();
+				   user.Name = l.Login(user.Email , user.Password);
+			  
+		  }
+			  
+				  System.out.println("Choose the way to pay: 1- PayPal 2-Cridet");
+				  int ch;
+				  ch = scanner.nextInt();
+				  System.out.println("You should pay 99$ for confirmation Enter 1");
+				  ch = scanner.nextInt();
+				  Profile p = new Profile();
+				  p.SelectType(user.Name);
+					  
+				  
+				  
+			  }
+		  
+			  		  
+			  
+		  
+		  }
+		  
+	       
+   
+   
+		 
+	    }
+}

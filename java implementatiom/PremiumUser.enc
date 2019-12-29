@@ -1,0 +1,9 @@
+package SWP;
+
+public class PremiumUser {
+    PremiumUser() {} // constructor
+    void creat_group(){}
+    void creat_page(){}
+     
+    
+}
